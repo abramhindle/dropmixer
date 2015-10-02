@@ -1,7 +1,6 @@
 
        	sr = 44100
-	kr = 441
-	ksmps = 100
+	ksmps = 256
 	nchnls = 4
 
       gkmute1 init 1

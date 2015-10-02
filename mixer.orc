@@ -1,6 +1,6 @@
 
-       	sr = 44100
-	kr = 441
+       	sr = 48000
+	kr = 480
 	ksmps = 100
 	nchnls = 4
 
@@ -23,10 +23,10 @@ FLpanel 	"Mixer",200,100
 ;ibox0  FLbox  "FM Synth (abram)", 1, 6, 12, 300, 20, 0, 0
 ;FLsetFont   7, ibox0
             
-gkamp1,    iknob1 FLknob  "AMP1", 0.0001, 2, -1,1, -1, 50, 0,0
-gkamp2,    iknob2 FLknob  "AMP2", 0.0001, 2, -1,1, -1, 50, 50,0
-gkamp3,    iknob3 FLknob  "AMP3", 0.0001, 2, -1,1, -1, 50, 100,0
-gkamp4,    iknob4 FLknob  "AMP4", 0.0001, 2, -1,1, -1, 50, 150,0
+gkamp1,    iknob1 FLknob  "AMP1", 0.001, 1000, -1,1, -1, 50, 0,0
+gkamp2,    iknob2 FLknob  "AMP2", 0.001, 1000, -1,1, -1, 50, 50,0
+gkamp3,    iknob3 FLknob  "AMP3", 0.001, 1000, -1,1, -1, 50, 100,0
+gkamp4,    iknob4 FLknob  "AMP4", 0.001, 1000, -1,1, -1, 50, 150,0
 
 FLsetVal_i   1.0, iknob1
 FLsetVal_i   1.0, iknob2

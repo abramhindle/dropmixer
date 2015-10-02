@@ -8,6 +8,8 @@
       gkmute2 init 1
       gkmute3 init 1
       gkmute4 init 1
+      gkthresh1 init 1
+      gkthresh2 init 1
 
 ;zakinit 20,20
 
@@ -70,9 +72,19 @@ FLrun		;***** runs the widget thread
         ;ar4 min 1.0 + 0*ar4, ar4
 	;aa1 = a1 * gkamp1 * gkmute1 * ar3 * kb3
 	;aa2 = a2 * gkamp2 * gkmute2 * ar4 * kb4
-	aa1 = a1 * gkamp1 * gkmute1 *  kb3
-	aa2 = a2 * gkamp2 * gkmute2 *  kb4
+	aa1 = a1 * (gkamp1 - 0.0001) * gkmute1 *  kb3
+	aa2 = a2 * (gkamp2 - 0.0001) * gkmute2 *  kb4
 
+	outs aa1,aa2
+        endin   
+
+        instr 2
+	a1,a2,a3,a4 inq
+        ka3 downsamp a3
+        kmix1 = (abs(ka3) > gkthresh1)?1:0
+        kmix2 = (abs(ka3) < gkthresh2)?1:0
+	aa1 = a1 * kmix1 * gkmute1 
+	aa2 = a2 * kmix2 * gkmute2 
 	outs aa1,aa2
         endin   
 

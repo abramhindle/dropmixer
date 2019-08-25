@@ -74,13 +74,13 @@ FLrun		;***** runs the widget thread
 	aa2 = a2 * gkamp2 * gkmute2
 	aa3 = a3 * gkamp3 * gkmute3
         aa4 = a4 * gkamp4 * gkmute4
-        aa1 clip aa1, 0, 1
+        aa1 clip aa1, 0, 32000
         aa1 dcblock2 aa1
-        aa2 clip aa2, 0, 1
+        aa2 clip aa2, 0, 32000
         aa2 dcblock2 aa2
-        aa3 clip aa3, 0, 1
+        aa3 clip aa3, 0, 32000
         aa3 dcblock2 aa3
-        aa4 clip aa4, 0, 1
+        aa4 clip aa4, 0, 32000
         aa4 dcblock2 aa4
         outq aa1,aa2,aa3,aa4
         endin   

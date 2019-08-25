@@ -1,5 +1,5 @@
 
-       	sr = 44100
+       	sr = 48000
 	ksmps = 256
 	nchnls = 4
 
@@ -24,10 +24,10 @@ FLpanel 	"Mixer",200,300
     ;ibox0  FLbox  "FM Synth (abram)", 1, 6, 12, 300, 20, 0, 0
     ;FLsetFont   7, ibox0
                 
-    gkamp1,    iknob1 FLknob  "AMP1", 0.0001, 2, -1,1, -1, 50, 0,0
-    gkamp2,    iknob2 FLknob  "AMP2", 0.0001, 2, -1,1, -1, 50, 50,0
-    gkamp3,    iknob3 FLknob  "AMP3", 0.0001, 2, -1,1, -1, 50, 100,0
-    gkamp4,    iknob4 FLknob  "AMP4", 0.0001, 2, -1,1, -1, 50, 150,0
+    gkamp1,    iknob1 FLknob  "AMP1", 0.0001, 8, -1,1, -1, 50, 0,0
+    gkamp2,    iknob2 FLknob  "AMP2", 0.0001, 8, -1,1, -1, 50, 50,0
+    gkamp3,    iknob3 FLknob  "AMP3", 0.0001, 8, -1,1, -1, 50, 100,0
+    gkamp4,    iknob4 FLknob  "AMP4", 0.0001, 8, -1,1, -1, 50, 150,0
     ;                                      ionioffitype
     gkmute1,    gimute1 FLbutton  "Mute1", 1, 0, 22, 50, 50, 0  ,100, -1
     gkmute2,    gimute2 FLbutton  "Mute2", 1, 0, 22, 50, 50, 50 ,100, -1
@@ -74,7 +74,15 @@ FLrun		;***** runs the widget thread
 	aa2 = a2 * gkamp2 * gkmute2
 	aa3 = a3 * gkamp3 * gkmute3
         aa4 = a4 * gkamp4 * gkmute4
-	outq aa1,aa2,aa3,aa4
+        aa1 clip aa1, 0, 1
+        aa1 dcblock2 aa1
+        aa2 clip aa2, 0, 1
+        aa2 dcblock2 aa2
+        aa3 clip aa3, 0, 1
+        aa3 dcblock2 aa3
+        aa4 clip aa4, 0, 1
+        aa4 dcblock2 aa4
+        outq aa1,aa2,aa3,aa4
         endin   
 
 ; the dropper
